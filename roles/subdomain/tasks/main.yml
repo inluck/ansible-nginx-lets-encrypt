@@ -1,0 +1,27 @@
+---
+
+- name: Create letsencrypt certificate
+  shell: letsencrypt certonly -n --webroot -w /var/www/letsencrypt -m {{ letsencrypt_email }} --agree-tos -d {{ item.subdomain }}.{{ domain }}
+  args:
+    creates: /etc/letsencrypt/live/{{ item.subdomain }}.{{ domain }}
+  with_items: "{{ subdomains }}"
+
+- name: Generate dhparams
+  shell: openssl dhparam -out /etc/nginx/dhparams.pem 2048
+  args:
+    creates: /etc/nginx/dhparams.pem
+
+- name: Install nginx site for specified site
+  template:
+    src: templates/nginx-subdomain.j2
+    dest: /etc/nginx/sites-enabled/{{ item.subdomain }}.{{ domain }}
+  notify:
+    - reload nginx
+  with_items: "{{ subdomains }}"
+
+- name: Add letsencrypt cronjob for cert renewal
+  cron:
+    name: letsencrypt_renewal
+    special_time: weekly
+    job: letsencrypt --renew certonly -n --webroot -w /var/www/letsencrypt -m {{ letsencrypt_email }} --agree-tos -d {{ item.subdomain }}.{{ domain }} && service nginx reload
+  with_items: "{{ subdomains }}"

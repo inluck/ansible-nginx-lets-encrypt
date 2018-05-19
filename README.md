@@ -2,10 +2,10 @@
 Quickly setup your Raspberry Pi - with nginx and SSL certificate using Let's encrypt for multiple services and sub-domains.
 
 ### The reason why:
-You want to route the traffic from a public domain like example.com to a service running in your local network at home.   
-So if a user visit foo.example.com you want him (or her) to be able to access the service your are running in your local network.  
-In this case sub-domains of example.com (foo.example.com) is being routed via DNS, to the public ip of your ISP.   
-Using Ip Forwarding we are redirecting all traffic trow the port 80 and 443 to the nginx service ip.  
+You want to route the traffic from a public domain like example.com to a service running in your local network at home.
+So if a user visit foo.example.com you want him (or her) to be able to access the service your are running in your local network.
+In this case sub-domains of example.com (foo.example.com) is being routed via DNS, to the public ip of your ISP.
+Using Ip Forwarding we are redirecting all traffic trow the port 80 and 443 to the nginx service ip.
 
 Nginx is then redirecting the traffic to the different services  
 foo.example.com -> 192.168.x.y:1234  

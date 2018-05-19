@@ -1,0 +1,23 @@
+---
+# Change user to an existing user on the raspberry pi
+user: nignx
+
+# Change this to your email to be used the register the SSL Certificate
+letsencrypt_email: info@example.com
+
+domain: example.com
+default_subdomain: subdomain1
+
+
+# Add all the sub domains and the IP and Port of the running services.
+subdomains:
+
+  - name: subdomain1
+    subdomain: subdomain1
+    service_ip: ip_of_service
+    service_port: port
+
+  - name: subdomain2
+    subdomain: subdomain2
+    service_ip: ip_of_service
+    service_port: port

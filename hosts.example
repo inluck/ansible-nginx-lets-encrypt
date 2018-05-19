@@ -1,0 +1,3 @@
+[nginx]
+# Change "ip_of_the_pi/hostname" to the ip or hostname of the Raspberry-pi where you want Nginx to be installed
+ip_of_the_pi/hostname
