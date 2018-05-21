@@ -19,7 +19,8 @@ So in this case there are some steps to be taken.
    host record: foo -> points to IP of your ISP (xx.xx.xx.xx)  
    you can do this by connecting to the network and googling "what's my ip")
 4. In your router/modem you should route all traffic from port 80 and 443 to the IP of the raspberry pi where nginx will be installed
-5. follow the [installation](#installation) steps below
+5. Setup your Raspberry Pi by following the [installation](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) guide on the official site.
+6. After all of this is done follow the [installation](#installation) steps below
 
 ## Installation
 
