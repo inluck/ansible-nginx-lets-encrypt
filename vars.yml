@@ -1,0 +1,18 @@
+---
+user: nginx
+letsencrypt_email: tech@altinc.ca
+
+domain: nx.mnc.apbx.ca
+default_subdomain: dev
+
+subdomains:
+
+  - name: dev
+    subdomain: dev
+    service_ip: {{ ansible_host }}
+    service_port: 3001
+
+  - name: sipcheck
+    subdomain: sipcheck
+    service_ip: {{ ansible_host }}
+    service_port: 3002
