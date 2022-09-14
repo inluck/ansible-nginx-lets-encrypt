@@ -1,0 +1,23 @@
+---
+# Change user to an existing user on the raspberry pi
+user: nginx
+
+# Change this to your email to be used the register the SSL Certificate
+letsencrypt_email: tech@altinc.ca
+
+domain: apbx.ca
+default_subdomain: dev
+
+
+# Add all the sub domains and the IP and Port of the running services.
+subdomains:
+
+  - name: dev
+    subdomain: subdomain1
+    service_ip: ip_of_service
+    service_port: port
+
+  - name: subdomain2
+    subdomain: subdomain2
+    service_ip: ip_of_service
+    service_port: port
