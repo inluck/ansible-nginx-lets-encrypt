@@ -1,6 +1,6 @@
 ---
 - name: Setup nginx with SSL for multiple domains
-  hosts: nginx
+  hosts: all
   user: "{{ user }}"
   become: true
   gather_facts: no
