@@ -1,10 +1,12 @@
 ---
 - hosts: all
   tasks:
-    - name: Installs nginx web server
-      apt: pkg=nginx state=installed update_cache=true
-    - name: Installs certbot
-      apt: pkg=certbot state=installed update_cache=true
+    - name: Install nginx and certbox
+      ansible.builtin.apt:
+        pkg:
+        - nginx
+        - certbox
+        update_cache: yes
 
 #      - name: add apt key for nodesource
 #       apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key
