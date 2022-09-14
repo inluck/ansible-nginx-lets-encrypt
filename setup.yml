@@ -1,11 +1,11 @@
 ---
 - hosts: all
   tasks:
-    - name: Install nginx and certbox
+    - name: Install nginx and certbot
       ansible.builtin.apt:
         pkg:
         - nginx
-        - certbox
+        - certbot
         update_cache: yes
 
 #      - name: add apt key for nodesource
