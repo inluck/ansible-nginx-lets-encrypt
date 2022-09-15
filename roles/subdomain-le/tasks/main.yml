@@ -12,14 +12,6 @@
   args:
     creates: /etc/nginx/dhparams.pem
 
-- name: Install nginx site for specified site
-  template:
-    src: templates/nginx-subdomain-le.j2
-    dest: /etc/nginx/sites-enabled/{{ item.subdomain }}.{{ domain }}
-  notify:
-    - reload nginx
-  with_items: "{{ subdomains }}"
-
 - name: Add letsencrypt cronjob for cert renewal
   cron:
     name: letsencrypt_renewal
