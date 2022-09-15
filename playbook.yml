@@ -1,7 +1,8 @@
 ---
 - name: Setup nginx with SSL for multiple domains
   hosts: all
-  become: true
+  become: yes
+  become_user: root
   gather_facts: no
   vars_files:
     - vars.yml
