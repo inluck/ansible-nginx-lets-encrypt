@@ -1,8 +1,6 @@
 ---
 
 - name: Create letsencrypt certificate
-  retries: 6
-  delay: 3
   ignore_errors: yes
   shell: letsencrypt certonly -n --webroot -w /var/www/letsencrypt -m {{ letsencrypt_email }} --agree-tos -d {{ item.subdomain }}.{{ domain }}
   args:
