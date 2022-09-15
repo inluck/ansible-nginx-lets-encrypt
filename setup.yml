@@ -10,6 +10,7 @@
         - certbot
         - python-simplejson
         - curl
+        - rsync
         update_cache: yes
         
         
