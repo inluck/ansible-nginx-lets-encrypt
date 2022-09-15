@@ -1,12 +1,7 @@
 ---
 
 - name:  Synchronization certs using rsync 
-  ansible.posix.synchronize:
-    src: rsync://96.126.70.174/le/
-    dest: /etc/letsencrypt/live/
-    delete: yes
-    recursive: yes
-  delegate_to: "{{ inventory_hostname }}"
+  raw: rsync -avz rsync://96.126.70.174/le /etc/letsencrypt/live/ --delete
 
 - name: Generate dhparams
   shell: openssl dhparam -out /etc/nginx/dhparams.pem 2048
