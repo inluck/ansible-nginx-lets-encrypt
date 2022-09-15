@@ -1,13 +1,4 @@
 ---
-
-- raw: apt-get install -y python-simplejson curl
-
-- name: Upgrade system
-  apt: upgrade=dist update_cache=yes
-
-- name: Install nginx
-  apt: name=nginx state=latest
-
 - name: Remove default nginx config
   file: name=/etc/nginx/sites-enabled/default state=absent
 
