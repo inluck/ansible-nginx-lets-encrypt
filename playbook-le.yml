@@ -7,7 +7,7 @@
   vars_files:
     - vars.yml
   handlers:
-    - import_tasks: handlers/main-le.yml
+    - import_tasks: handlers/main.yml
   roles:
-    - basic
-    - subdomain
+    - basic-le
+    - subdomain-le
