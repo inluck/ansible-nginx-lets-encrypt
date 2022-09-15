@@ -1,0 +1,13 @@
+---
+- name: Setup nginx with SSL for multiple domains
+  hosts: all
+  become: yes
+  become_user: root
+  gather_facts: no
+  vars_files:
+    - vars.yml
+  handlers:
+    - import_tasks: handlers/main-le.yml
+  roles:
+    - basic
+    - subdomain
