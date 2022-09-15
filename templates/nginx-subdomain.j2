@@ -3,8 +3,8 @@ add_header X-Content-Type-Options nosniff;
 add_header X-XSS-Protection "1; mode=block";
 
 upstream {{ item.subdomain }} {
-     server 96.126.70.172:{{ itme.service_port }};
-     server 96.126.70.173:{{ itme.service_port }};
+     server 96.126.70.172:{{ item.service_port }};
+     server 96.126.70.173:{{ item.service_port }};
 }
 
 # HTTPS server
