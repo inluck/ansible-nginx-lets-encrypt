@@ -15,9 +15,9 @@
   args:
     creates: /etc/nginx/dhparams.pem
     
- - name: Install nginx site for letsencrypt requests
+- name: Install nginx site for letsencrypt requests
   template:
-    src: templates/nginx-http.j2
-    dest: /etc/nginx/sites-enabled/http
+   src: templates/nginx-http.j2
+   dest: /etc/nginx/sites-enabled/http
   notify:
   - reload nginx
