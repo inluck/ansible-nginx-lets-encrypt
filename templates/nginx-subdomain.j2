@@ -2,6 +2,11 @@ add_header X-Frame-Options SAMEORIGIN;
 add_header X-Content-Type-Options nosniff;
 add_header X-XSS-Protection "1; mode=block";
 
+upstream {{ item.subdomain }} {
+     server 96.126.70.172:{{ itme.service_port }};
+     server 96.126.70.173:{{ itme.service_port }};
+}
+
 # HTTPS server
 #
 server {
@@ -35,7 +40,7 @@ server {
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection "upgrade";
-            proxy_redirect http://{{ item.service_ip }}:{{ item.service_port }} $scheme://{{ item.subdomain }}.{{ domain }};
+            proxy_redirect http://{{ item.subdomain }} $scheme://{{ item.subdomain }}.{{ domain }};
     }
     
     location ~ "^/(.well-known/acme-challenge/[\w_-]{43})$" {
@@ -54,6 +59,6 @@ server {
         proxy_buffers           16 100k;
         proxy_redirect off;
 
-        proxy_pass https://96.126.70.174:80;
+        proxy_pass http://96.126.70.174:80;
     }
 }
