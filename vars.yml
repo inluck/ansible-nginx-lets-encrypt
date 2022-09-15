@@ -16,3 +16,8 @@ subdomains:
     subdomain: sipcheck
     service_ip: "{{ ansible_host }}"
     service_port: 3002
+
+  - name: captf
+    subdomain: captf
+    service_ip: "{{ ansible_host }}"
+    service_port: 3003
